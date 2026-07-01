@@ -126,5 +126,5 @@ pyinstaller
 ## 👩‍💻 Author
 
 **Diana Manurung**  
-Universitas — Tugas Kuliah PhotoBooth  
+Institut Teknologi Del — Proyek PhotoBooth  
 © 2026 NanaBooth
