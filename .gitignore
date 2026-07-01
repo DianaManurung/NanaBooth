@@ -1,0 +1,10 @@
+﻿venv/
+build/
+dist/
+*.spec
+static/uploads/
+__pycache__/
+*.pyc
+installer_output/
+.vscode/
+Thumbs.db

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NanaBooth | Capture Every Beautiful Moment</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-circle"></div>
+        <i class="fa-solid fa-camera-retro splash-logo"></i>
+        <h1 class="splash-title">NanaBooth</h1>
+        <p class="splash-subtitle">Capture Every Beautiful Moment</p>
+        <div class="splash-loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="bg-circle bg1"></div>
+    <div class="bg-circle bg2"></div>
+    <div class="bg-circle bg3"></div>
+    <div class="bg-grain"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+
+            <span class="badge">
+                ✨ Premium Photo Experience
+            </span>
+
+            <h1>NanaBooth</h1>
+
+            <p>
+                Capture Every Beautiful Moment
+            </p>
+
+            <a href="{{ url_for('gallery') }}" class="gallery-link">
+                <i class="fa-solid fa-images"></i>
+                View Gallery
+            </a>
+
+        </header>
+
+        <!-- Strip Selector -->
+        <section class="strip-selector">
+
+            <div class="strip-selector-label">
+                <i class="fa-solid fa-grip-lines-vertical"></i>
+                <span>Choose Your Strip</span>
+            </div>
+
+            <div class="strip-options" id="stripOptions">
+                <button class="strip-opt" data-count="2">2<small>Photos</small></button>
+                <button class="strip-opt" data-count="3">3<small>Photos</small></button>
+                <button class="strip-opt active" data-count="4">4<small>Photos</small></button>
+                <button class="strip-opt" data-count="5">5<small>Photos</small></button>
+                <button class="strip-opt" data-count="6">6<small>Photos</small></button>
+            </div>
+
+        </section>
+
+        <!-- Theme Selector -->
+        <section class="strip-selector theme-selector">
+
+            <div class="strip-selector-label">
+                <i class="fa-solid fa-palette"></i>
+                <span>Pick a Theme</span>
+            </div>
+
+            <div class="theme-options" id="themeOptions">
+                <button class="theme-opt active" data-theme="0">
+                    <span class="swatch" style="background:linear-gradient(135deg,#EEF2F8,#2F4B7C)"></span>
+                    School
+                </button>
+                <button class="theme-opt" data-theme="1">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFFFFF,#111111)"></span>
+                    Classic Black
+                </button>
+                <button class="theme-opt" data-theme="2">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFF0F3,#E0607E)"></span>
+                    Couple
+                </button>
+                <button class="theme-opt" data-theme="3">
+                    <span class="swatch" style="background:linear-gradient(135deg,#1C1C1C,#F4A300)"></span>
+                    Film
+                </button>
+                <button class="theme-opt" data-theme="4">
+                    <span class="swatch" style="background:linear-gradient(135deg,#F7F3E9,#143057)"></span>
+                    Graduation
+                </button>
+                <button class="theme-opt" data-theme="5">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFF7E8,#FF6F91)"></span>
+                    Birthday
+                </button>
+                <button class="theme-opt" data-theme="6">
+                    <span class="swatch" style="background:linear-gradient(135deg,#F4FBF5,#B3261E)"></span>
+                    Christmas
+                </button>
+                <button class="theme-opt" data-theme="7">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFF4F7,#F4ACB7)"></span>
+                    Sakura
+                </button>
+                <button class="theme-opt" data-theme="8">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FDF6F0,#D8B4A0)"></span>
+                    Korean
+                </button>
+                <button class="theme-opt" data-theme="9">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFFFFF,#D1D1D1)"></span>
+                    Polaroid
+                </button>
+                <button class="theme-opt" data-theme="10">
+                    <span class="swatch" style="background:linear-gradient(135deg,#FFFFFF,#E10600)"></span>
+                    Magazine
+                </button>
+                <button class="theme-opt" data-theme="11">
+                    <span class="swatch" style="background:linear-gradient(135deg,#E8F6F8,#3FA9C9)"></span>
+                    Beach
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Frame Selector -->
+        <section class="strip-selector frame-selector">
+
+            <div class="strip-selector-label">
+                <i class="fa-solid fa-vector-square"></i>
+                <span>Choose Frame</span>
+            </div>
+
+            <div class="frame-options" id="frameOptions">
+                <button class="frame-opt active" data-frame="0">
+                    <span class="frame-preview frame-preview-none"></span>
+                    None
+                </button>
+                <button class="frame-opt" data-frame="1">
+                    <span class="frame-preview" style="border:4px double #D6B57B;"></span>
+                    Gold
+                </button>
+                <button class="frame-opt" data-frame="2">
+                    <span class="frame-preview" style="border:5px solid #111111;"></span>
+                    Bold Black
+                </button>
+                <button class="frame-opt" data-frame="3">
+                    <span class="frame-preview" style="border:3px dashed #C99A85;"></span>
+                    Dashed
+                </button>
+                <button class="frame-opt" data-frame="4">
+                    <span class="frame-preview frame-preview-floral"></span>
+                    Floral
+                </button>
+                <button class="frame-opt" data-frame="5">
+                    <span class="frame-preview" style="border:10px solid #FFFFFF;box-shadow:0 0 0 1px #E5E7EB;"></span>
+                    Polaroid
+                </button>
+            </div>
+
+            <p class="frame-hint">
+                <i class="fa-solid fa-circle-info"></i>
+                Ganti frame kapan saja — tidak perlu ambil ulang foto.
+            </p>
+
+        </section>
+
+        <!-- Main -->
+        <main class="grid">
+
+            <!-- Camera Card -->
+            <section class="card">
+
+                <div class="card-header">
+
+                    <h2>
+                        <i class="fa-solid fa-camera"></i>
+                        Live Camera
+                    </h2>
+
+                    <span id="cameraStatus" class="status offline">
+                        🔴 Offline
+                    </span>
+
+                </div>
+
+                <div class="camera-wrapper">
+
+                    <video id="video" autoplay playsinline muted></video>
+
+                    <div class="shot-indicator" id="shotIndicator"></div>
+
+                    <div id="countdown"></div>
+
+                    <div id="flash"></div>
+
+                </div>
+
+                <canvas id="canvas" style="display:none;"></canvas>
+                <canvas id="stripCanvas" style="display:none;"></canvas>
+
+                <div class="button-group">
+
+                    <button id="startCamera" class="primary-btn">
+
+                        <i class="fa-solid fa-video"></i>
+
+                        Start Camera
+
+                    </button>
+
+                    <button id="capture" class="capture-btn">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                        Capture Strip
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- Preview Card -->
+            <section class="card">
+
+                <div class="card-header">
+
+                    <h2>
+                        <i class="fa-solid fa-image"></i>
+                        Photostrip
+                    </h2>
+
+                </div>
+
+                <div class="preview-wrapper">
+
+                    <img
+                        id="photo"
+                        src="https://placehold.co/500x900/F3F4F6/9CA3AF?text=Your+Strip+Will+Appear+Here"
+                        alt="Preview">
+
+                </div>
+
+                <div class="button-group">
+
+                    <button id="retake">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        Retake
+
+                    </button>
+
+                    <button id="download">
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Download
+
+                    </button>
+
+                </div>
+
+                <div class="print-group">
+
+                    <select id="printSize" class="print-size-select">
+                        <option value="2x6">2 × 6 in (Strip)</option>
+                        <option value="4x6">4 × 6 in</option>
+                        <option value="a4">A4</option>
+                    </select>
+
+                    <button id="printBtn" class="print-btn">
+                        <i class="fa-solid fa-print"></i>
+                        Print
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Features -->
+
+        <section class="feature-section">
+
+            <div class="feature">
+
+                <i class="fa-solid fa-camera-retro"></i>
+
+                <h3>HD Camera</h3>
+
+                <p>
+                    Capture high quality memories directly from your webcam.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <h3>Custom Strip</h3>
+
+                <p>
+                    Pick 2 up to 6 frames, composed into one elegant strip.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+
+                <h3>Easy Download</h3>
+
+                <p>
+                    Download your favorite moments anytime.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>
+
+                Made with ❤️ using Flask & JavaScript
+
+            </p>
+
+            <small>
+
+                © 2026 NanaBooth
+
+            </small>
+
+        </footer>
+
+    </div>
+
+    <!-- Print-only area: hanya ini yang tampil saat window.print() dipanggil -->
+    <div class="print-area" id="printArea">
+        <img id="printImage" src="" alt="Print Photostrip">
+    </div>
+
+    <!-- QR Download Popup -->
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-modal-inner">
+
+            <button class="lightbox-close" id="qrClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <i class="fa-solid fa-qrcode qr-modal-icon"></i>
+            <h3>Scan to Download</h3>
+            <p>Pindai dengan kamera HP untuk langsung mengunduh strip-mu</p>
+
+            <img id="qrImage" src="" alt="QR Code">
+
+            <span class="qr-modal-hint">QR ini berubah otomatis tiap strip baru</span>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

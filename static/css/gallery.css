@@ -1,0 +1,277 @@
+.gallery-header{
+    text-align:center;
+    margin-bottom:45px;
+    position:relative;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    position:absolute;
+    left:0;
+    top:6px;
+    font-size:.9rem;
+    font-weight:700;
+    color:#6B7280;
+    transition:.25s;
+}
+
+.back-link:hover{
+    color:#111827;
+    transform:translateX(-3px);
+}
+
+.gallery-header h1{
+    font-family:"Cormorant Garamond", serif;
+    font-size:3.4rem;
+    font-weight:600;
+    color:#111827;
+    margin-top:14px;
+}
+
+.gallery-header p{
+    margin-top:6px;
+    color:#6B7280;
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:26px;
+}
+
+.gallery-card{
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.75);
+    border-radius:22px;
+    padding:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,.07);
+    transition:.3s;
+    animation:cardAppear .6s ease;
+}
+
+.gallery-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+}
+
+.thumb-wrapper{
+    position:relative;
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#F3F4F6;
+    aspect-ratio:560/760;
+}
+
+.thumb-wrapper img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+}
+
+.thumb-wrapper:hover img{
+    transform:scale(1.05);
+}
+
+.thumb-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(17,24,39,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:.3s;
+    color:white;
+    font-size:1.4rem;
+}
+
+.thumb-wrapper:hover .thumb-overlay{
+    opacity:1;
+}
+
+.gallery-card-info{
+    margin-top:12px;
+    display:flex;
+    justify-content:center;
+}
+
+.gallery-date{
+    font-size:.78rem;
+    font-weight:600;
+    color:#9A8466;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.gallery-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.g-btn{
+    flex:1;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:#F9FAFB;
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    padding:10px;
+    font-size:.85rem;
+    font-weight:700;
+    color:#374151;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    transition:.25s;
+}
+
+.g-btn:hover{
+    background:#111827;
+    color:white;
+    border-color:#111827;
+    transform:translateY(-2px);
+}
+
+.g-btn-danger:hover{
+    background:#DC2626;
+    border-color:#DC2626;
+}
+
+.gallery-card.removing{
+    animation:cardRemove .35s ease forwards;
+}
+
+@keyframes cardRemove{
+    to{
+        opacity:0;
+        transform:scale(.85);
+    }
+}
+
+/* ===== Empty state ===== */
+
+.empty-state{
+    text-align:center;
+    padding:80px 20px;
+    background:rgba(255,255,255,.55);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:28px;
+}
+
+.empty-state i{
+    font-size:54px;
+    color:#D6B57B;
+    margin-bottom:18px;
+}
+
+.empty-state h3{
+    font-size:1.3rem;
+    color:#1F2937;
+    margin-bottom:8px;
+}
+
+.empty-state p{
+    color:#6B7280;
+    margin-bottom:24px;
+}
+
+.empty-cta{
+    display:inline-flex;
+    width:auto;
+    padding:14px 28px;
+}
+
+/* ===== Lightbox ===== */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(17,24,39,.78);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:30px;
+}
+
+.lightbox.active{
+    display:flex;
+    animation:fadePage .25s ease;
+}
+
+.lightbox-inner{
+    background:white;
+    border-radius:24px;
+    padding:20px;
+    max-width:420px;
+    width:100%;
+    max-height:90vh;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    position:relative;
+}
+
+.lightbox-inner img{
+    width:100%;
+    max-height:65vh;
+    object-fit:contain;
+    border-radius:14px;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:-14px;
+    right:-14px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:none;
+    background:#111827;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.lightbox-actions{
+    display:flex;
+    gap:10px;
+}
+
+@media(max-width:768px){
+    .back-link{
+        position:static;
+        margin-bottom:14px;
+    }
+
+    .gallery-header h1{
+        font-size:2.5rem;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+        gap:16px;
+    }
+
+    .gallery-actions{
+        flex-wrap:wrap;
+    }
+}
